@@ -1,0 +1,3 @@
+--PORTAINER--
+u:admin
+p:adminportainer
