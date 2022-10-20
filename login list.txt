@@ -1,3 +1,12 @@
 --PORTAINER--
 u:admin
 p:adminportainer
+
+--POSTGRES--
+u:admin
+p:admin1234
+DB:DiscountDb
+
+--PGADMIN--
+e:admin@aspnetrun.com
+p:admin1234
