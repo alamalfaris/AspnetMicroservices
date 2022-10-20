@@ -10,3 +10,6 @@ DB:DiscountDb
 --PGADMIN--
 e:admin@aspnetrun.com
 p:admin1234
+
+--CHECK PORT IN WINDOWS--
+cmd -> netstat -a
