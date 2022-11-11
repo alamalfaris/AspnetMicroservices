@@ -27,6 +27,7 @@ namespace Ordering.API
         {
             //Registrer Clean Architecture [start]
             //services.AddApplicationService();
+            //services.AddInfrastructureService();
             //[end]
 
             services.AddControllers();
