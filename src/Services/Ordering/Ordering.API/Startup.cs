@@ -6,6 +6,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Ordering.Application;
+using Ordering.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,9 +27,9 @@ namespace Ordering.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //Registrer Clean Architecture [start]
-            //services.AddApplicationService();
-            //services.AddInfrastructureService();
+            //Registrer Clean Architecture Layer [start]
+            services.AddApplicationServices();
+            services.AddInfrastructureServices(Configuration);
             //[end]
 
             services.AddControllers();
