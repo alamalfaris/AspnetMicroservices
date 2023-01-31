@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Ordering.Application.Features.Orders.Commands.CheckoutOrder;
+using Ordering.Application.Features.Orders.Commands.DeleteOrder;
 using Ordering.Application.Features.Orders.Commands.UpdateOrder;
 using Ordering.Application.Features.Orders.Queries.GetOrdersList;
 using System;
@@ -56,7 +57,7 @@ namespace Ordering.API.Controllers
         [ProducesDefaultResponseType]
         public async Task<ActionResult> DeleteOrder(int id)
         {
-            var command = new Delete.OrderCommand() { id = id };
+            var command = new DeleteOrderCommand() { Id = id };
             await _mediator.Send(command);
             return NoContent();
         }
