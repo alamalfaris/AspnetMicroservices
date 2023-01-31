@@ -2,6 +2,8 @@
 using MediatR;
 using Microsoft.Extensions.Logging;
 using Ordering.Application.Contracts.Persistance;
+using Ordering.Application.Exceptions;
+using Ordering.Domain.Entities;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -21,9 +23,18 @@ namespace Ordering.Application.Features.Orders.Commands.DeleteOrder
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        public Task<Unit> Handle(DeleteOrderCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(DeleteOrderCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var orderToDelete = await _orderRepository.GetByIdAsync(request.Id);
+            if (orderToDelete == null)
+            {
+                throw new NotFoundException(nameof(Order), request.Id);
+            }
+
+            await _orderRepository.DeleteAsync(orderToDelete);
+            _logger.LogInformation($"Order {orderToDelete.Id} is successfully deleted.");
+
+            return Unit.Value;
         }
     }
 }
