@@ -13,3 +13,7 @@ p:admin1234
 
 --CHECK PORT IN WINDOWS--
 cmd -> netstat -a
+
+--RABBITMQ--
+u:guest
+p:guest
