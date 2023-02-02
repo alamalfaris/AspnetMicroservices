@@ -36,9 +36,10 @@ namespace Basket.API
             });
             //Redis setting [end]
 
-            //Repository scopped [start]
+            //General Config [start]
             services.AddScoped<IBasketRepository, BasketRepository>();
-            //Repository scopped [end]
+            services.AddAutoMapper(typeof(Startup));
+            //General Config [end]
 
             //Registered Discount Grpc [start]
             services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>
