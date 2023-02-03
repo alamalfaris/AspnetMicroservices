@@ -45,6 +45,11 @@ namespace Ordering.API
             services.AddMassTransitHostedService();
             //Registered MassTransit-RabbitMQ [end]
 
+            //General Config [start]
+            services.AddAutoMapper(typeof(Startup));
+            services.AddScoped<BasketCheckoutConsumer>();
+            //General Config [end]
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
